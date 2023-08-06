@@ -3,22 +3,41 @@ import Footer from '../components/Footer'
 import { useGlobalContext } from '../context'
 import { useNavigate } from 'react-router-dom'
 import data from '../data/product-data.json'
+import Thank from '../components/Thank'
 
+// check if every input is set correctly, if any isn't then turn message state on
+
+// the function should be insife handle submit
 function Checkout() {
   const navigate = useNavigate()
   const { cart } = useGlobalContext()
   const [cartProducts, setcartProducts] = useState([])
   const [first, setFirst] = useState(true)
+  const [thank, setThank] = useState(true)
   const [enter, setEnter] = useState({
     sname: '',
     email: '',
     phone: '',
     address: '',
+    zip: '',
     city: '',
     country: '',
     pin: '',
     money: '',
   })
+  const [messeage, setMessage] = useState(() => {
+
+    let newl = {}
+
+    for (let prop in enter) {
+
+      newl[prop] = false;
+
+    }
+    return newl
+
+  })
+
 
   const getTotal = () => {
     let total = 0
@@ -42,16 +61,164 @@ function Checkout() {
     setcartProducts(() => setl)
   }, [cart])
   const handleSubmit = (event) => {
-    console.log('prevented!')
-    //confirm that every input is put in right format,
-    //if any is entered in wrong format then you would correct it!.
-
     event.preventDefault()
+    let proceed = true;
+    console.log('prevented!', enter.sname)
+    /** sname: '',
+        email: '',
+        phone: '',
+        address: '',
+        zip: '',
+        city: '',
+        country: '',
+        pin: '',
+        money: '', */
+
+
+
+    if (enter.sname.length < 1) {
+      messeage.sname = true;
+      proceed = false;
+
+      setMessage((old) => {
+
+        return { ...old, sname: true }
+      })
+    }
+    else {
+      setMessage((old) => {
+
+        return { ...old, sname: false }
+      })
+
+    }
+    if (!enter.email.match(/[^\s@]+@[^\s@]+\.[^\s@]+/)) {
+      proceed = false;
+      console.log('email not valid!');
+
+      setMessage((old) => {
+
+        return { ...old, email: true }
+      })
+    }
+    else {
+      setMessage((old) => {
+
+        return { ...old, email: false }
+      })
+
+    }
+    if (!enter.phone.match(/^\+?\d{8,15}$/)) {
+      proceed = false;
+      setMessage((old) => {
+        return { ...old, phone: true }
+      })
+    }
+    else {
+      setMessage((old) => {
+
+        return { ...old, phone: false }
+      })
+
+    }
+
+    if (!enter.address.match(/^[a-zA-Z0-9\s\-\,\.\']+$/)) {
+      proceed = false;
+      setMessage((old) => {
+        return { ...old, address: true }
+      })
+    }
+
+    else {
+      setMessage((old) => {
+
+        return { ...old, address: false }
+      })
+
+    }
+    if (!/^\d+$/.test(enter.zip)) {
+      proceed = false;
+      setMessage((old) => {
+        return { ...old, zip: true }
+      })
+
+    }
+    else {
+      setMessage((old) => {
+
+        return { ...old, zip: false }
+      })
+
+    }
+
+    if (!/^\w+$/.test(enter.city)) {
+      proceed = false;
+      setMessage((old) => {
+        return { ...old, city: true }
+      })
+
+    }
+    else {
+      setMessage((old) => {
+
+        return { ...old, city: false }
+      })
+
+    }
+    if (!/^\w+$/.test(enter.country)) {
+      proceed = false;
+      setMessage((old) => {
+        return { ...old, country: true }
+      })
+
+    }
+    else {
+      setMessage((old) => {
+
+        return { ...old, country: false }
+      })
+
+    }
+    if (!/^\d{4}$/.test(enter.pin)) {
+      proceed = false;
+      setMessage((old) => {
+        return { ...old, pin: true }
+      })
+
+    }
+    else {
+      setMessage((old) => {
+
+        return { ...old, pin: false }
+      })
+
+    }
+    if (!/^\d{10,}$/.test(enter.money)) {
+      proceed = false;
+      setMessage((old) => {
+        return { ...old, money: true }
+      })
+
+    }
+    else {
+      setMessage((old) => {
+
+        return { ...old, money: false }
+      })
+
+    }
+
+
+    if (proceed) {
+
+      setThank(true)
+    }
   }
 
   return (
     <>
       <div className='checkoutWrapper'>
+        {thank&&<Thank></Thank>}
         <main className='checkoutMain'>
           <button onClick={() => navigate(-1)} className='goBack'>
             go back
@@ -65,17 +232,18 @@ function Checkout() {
               <h2>checkout</h2>
               <div className='billing'>
                 <p>billing details</p>
-                <div className='form-row'>
-                  <span className="SpanMessage">
+                <div className={messeage.sname ? 'form-row formDanger' : 'form-row'}>
+                  {messeage.sname && <span className="SpanMessage">
                     please enter a number
-                  </span>
+                  </span>}
+
                   <label htmlFor='name'>name</label>
                   <input
                     placeholder='your pretty name?'
                     type='text'
                     id='name'
                     name='name'
-                    required
+
                     onChange={(e) => {
                       setEnter((old) => {
                         return { ...old, sname: e.target.value }
@@ -84,14 +252,16 @@ function Checkout() {
                     value={enter.sname}
                   />
                 </div>
-                <div className='form-row'>
+                <div className={messeage.email ? 'form-row formDanger' : 'form-row'}>
+                  {messeage.email && <span className="SpanMessage">
+                    please enter a valid email!
+                  </span>}
                   <label htmlFor='email'>Email Address</label>
                   <input
                     placeholder='prettyName@hotmail.com'
                     type='email'
                     id='email'
                     name='email'
-                    required
                     onChange={(e) => {
                       setEnter((old) => {
                         return { ...old, email: e.target.value }
@@ -100,14 +270,16 @@ function Checkout() {
                     value={enter.email}
                   />
                 </div>
-                <div className='form-row'>
+                <div className={messeage.phone ? 'form-row formDanger' : 'form-row'}>
+                  {messeage.phone && <span className="SpanMessage">
+                    please enter a valid mobile number
+                  </span>}
                   <label htmlFor='Phone'>Phone Number</label>
                   <input
                     placeholder='+201234567891'
                     type='phone number'
                     id='Phone'
                     name='Phone'
-                    required
                     onChange={(e) => {
                       setEnter((old) => {
                         return { ...old, phone: e.target.value }
@@ -119,14 +291,16 @@ function Checkout() {
               </div>
               <div className='shipping'>
                 <p>Shipping info</p>
-                <div className='form-row'>
+                <div className={messeage.address ? 'form-row formDanger' : 'form-row'}>
+                  {messeage.address && <span className="SpanMessage">
+                    please enter a valid <address></address>
+                  </span>}
                   <label htmlFor='Address'>Address</label>
                   <input
                     placeholder='11 ANYWHERE'
                     type='Address'
                     id='Address'
                     name='Address'
-                    required
                     onChange={(e) => {
                       setEnter((old) => {
                         return { ...old, address: e.target.value }
@@ -135,24 +309,34 @@ function Checkout() {
                     value={enter.address}
                   />
                 </div>
-                <div className='form-row'>
+                <div className={messeage.zip ? 'form-row formDanger' : 'form-row'}>
+                  {messeage.zip && <span className="SpanMessage">
+                    it must be a valid number! <address></address>
+                  </span>}
                   <label htmlFor='Zip'>Zip Code</label>
                   <input
                     placeholder='11324'
                     type='text'
-                    required
+                    onChange={(e) => {
+                      setEnter((old) => {
+                        return { ...old, zip: e.target.value }
+                      })
+                    }}
+                    value={enter.zip}
                     id='Zip'
                     name='Zip'
                   />
                 </div>
-                <div className='form-row'>
+                <div className={messeage.city ? 'form-row formDanger' : 'form-row'}>
+                  {messeage.city && <span className="SpanMessage">
+                    provide city <address></address>
+                  </span>}
                   <label htmlFor='City'>City</label>
                   <input
                     placeholder='Gotham'
                     type='City'
                     id='City'
                     name='City'
-                    required
                     onChange={(e) => {
                       setEnter((old) => {
                         return { ...old, city: e.target.value }
@@ -161,14 +345,16 @@ function Checkout() {
                     value={enter.city}
                   />
                 </div>
-                <div className='form-row'>
+                <div className={messeage.country ? 'form-row formDanger' : 'form-row'}>
+                  {messeage.country && <span className="SpanMessage">
+                    provide country <address></address>
+                  </span>}
                   <label htmlFor='Country'>Country</label>
                   <input
                     placeholder='Egypt'
                     type='text'
                     id='Country'
                     name='Country'
-                    required
                     onChange={(e) => {
                       setEnter((old) => {
                         return { ...old, country: e.target.value }
@@ -217,14 +403,16 @@ function Checkout() {
 
                 {first ? (
                   <>
-                    <div className='form-row'>
+                    <div className={messeage.money ? 'form-row formDanger' : 'form-row'}>
+                      {messeage.money && <span className="SpanMessage">
+                        must be a number <address></address>
+                      </span>}
                       <label htmlFor='Country'>e-Money Number </label>
                       <input
                         placeholder='123123123'
                         type='text'
                         id='e-Money'
                         name='e-Money'
-                        required
                         onChange={(e) => {
                           setEnter((old) => {
                             return { ...old, money: e.target.value }
@@ -233,14 +421,16 @@ function Checkout() {
                         value={enter.money}
                       />
                     </div>
-                    <div className='form-row'>
+                    <div className={messeage.pin ? 'form-row formDanger' : 'form-row'}>
+                      {messeage.pin && <span className="SpanMessage">
+                        must be a number <address></address>
+                      </span>}
                       <label htmlFor='Pin'>e-Money Pin</label>
                       <input
                         placeholder='4684'
                         type='text'
                         id='Pin'
                         name='Pin'
-                        required
                         onChange={(e) => {
                           setEnter((old) => {
                             return { ...old, pin: e.target.value }
