@@ -1279,9 +1279,12 @@ div.select:nth-child(4) {
     justify-self: flex-end;
   }
 
-  .disPro > li > span {
+  .disPro > li > span:nth-child(2) {
     font-size: 14px;
     font-weight: 600;
+    justify-self: center;
+  }
+  .disPro > li > span:nth-child(3) {
     justify-self: center;
   }
   .disPro > li {
