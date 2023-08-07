@@ -5,15 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import data from '../data/product-data.json'
 import Thank from '../components/Thank'
 
-// check if every input is set correctly, if any isn't then turn message state on
-
-// the function should be insife handle submit
 function Checkout() {
   const navigate = useNavigate()
   const { cart } = useGlobalContext()
   const [cartProducts, setcartProducts] = useState([])
+  const [submitted, setSubmitted] = useState(false)
   const [first, setFirst] = useState(true)
-  const [thank, setThank] = useState(true)
+  const [thank, setThank] = useState(false)
   const [enter, setEnter] = useState({
     sname: '',
     email: '',
@@ -26,18 +24,13 @@ function Checkout() {
     money: '',
   })
   const [messeage, setMessage] = useState(() => {
-
     let newl = {}
 
     for (let prop in enter) {
-
-      newl[prop] = false;
-
+      newl[prop] = false
     }
     return newl
-
   })
-
 
   const getTotal = () => {
     let total = 0
@@ -60,157 +53,53 @@ function Checkout() {
     })
     setcartProducts(() => setl)
   }, [cart])
+  useEffect(() => {
+    if (submitted) {
+      console.log('changge!')
+      checkInpit('sname', enter.sname < 1)
+      checkInpit('email', !enter.email.match(/[^\s@]+@[^\s@]+\.[^\s@]+/))
+      checkInpit('phone', !enter.phone.match(/^\+?\d{8,15}$/))
+      checkInpit('address', !enter.address.match(/^[a-zA-Z0-9\s\-\,\.\']+$/))
+      checkInpit('zip', !/^\d+$/.test(enter.zip))
+      checkInpit('city', !/^\w+$/.test(enter.city))
+      checkInpit('country', !/^\w+$/.test(enter.country))
+      checkInpit('pin', !/^\d{4}$/.test(enter.pin))
+      checkInpit('money', !/^\d{10,}$/.test(enter.money))
+    }
+  }, [enter])
+  let proceed
+  const checkInpit = (sero, test) => {
+    if (test) {
+      setMessage((old) => {
+        let news = { ...old }
+        news[sero] = true
+        return news
+      })
+      proceed = false
+    } else {
+      setMessage((old) => {
+        let news = { ...old }
+        news[sero] = false
+        return news
+      })
+    }
+  }
   const handleSubmit = (event) => {
+    proceed = true
+    setSubmitted(true)
+    setThank(false)
     event.preventDefault()
-    let proceed = true;
-    console.log('prevented!', enter.sname)
-    /** sname: '',
-        email: '',
-        phone: '',
-        address: '',
-        zip: '',
-        city: '',
-        country: '',
-        pin: '',
-        money: '', */
-
-
-
-    if (enter.sname.length < 1) {
-      messeage.sname = true;
-      proceed = false;
-
-      setMessage((old) => {
-
-        return { ...old, sname: true }
-      })
-    }
-    else {
-      setMessage((old) => {
-
-        return { ...old, sname: false }
-      })
-
-    }
-    if (!enter.email.match(/[^\s@]+@[^\s@]+\.[^\s@]+/)) {
-      proceed = false;
-      console.log('email not valid!');
-
-      setMessage((old) => {
-
-        return { ...old, email: true }
-      })
-    }
-    else {
-      setMessage((old) => {
-
-        return { ...old, email: false }
-      })
-
-    }
-    if (!enter.phone.match(/^\+?\d{8,15}$/)) {
-      proceed = false;
-      setMessage((old) => {
-        return { ...old, phone: true }
-      })
-    }
-    else {
-      setMessage((old) => {
-
-        return { ...old, phone: false }
-      })
-
-    }
-
-    if (!enter.address.match(/^[a-zA-Z0-9\s\-\,\.\']+$/)) {
-      proceed = false;
-      setMessage((old) => {
-        return { ...old, address: true }
-      })
-    }
-
-    else {
-      setMessage((old) => {
-
-        return { ...old, address: false }
-      })
-
-    }
-    if (!/^\d+$/.test(enter.zip)) {
-      proceed = false;
-      setMessage((old) => {
-        return { ...old, zip: true }
-      })
-
-    }
-    else {
-      setMessage((old) => {
-
-        return { ...old, zip: false }
-      })
-
-    }
-
-    if (!/^\w+$/.test(enter.city)) {
-      proceed = false;
-      setMessage((old) => {
-        return { ...old, city: true }
-      })
-
-    }
-    else {
-      setMessage((old) => {
-
-        return { ...old, city: false }
-      })
-
-    }
-    if (!/^\w+$/.test(enter.country)) {
-      proceed = false;
-      setMessage((old) => {
-        return { ...old, country: true }
-      })
-
-    }
-    else {
-      setMessage((old) => {
-
-        return { ...old, country: false }
-      })
-
-    }
-    if (!/^\d{4}$/.test(enter.pin)) {
-      proceed = false;
-      setMessage((old) => {
-        return { ...old, pin: true }
-      })
-
-    }
-    else {
-      setMessage((old) => {
-
-        return { ...old, pin: false }
-      })
-
-    }
-    if (!/^\d{10,}$/.test(enter.money)) {
-      proceed = false;
-      setMessage((old) => {
-        return { ...old, money: true }
-      })
-
-    }
-    else {
-      setMessage((old) => {
-
-        return { ...old, money: false }
-      })
-
-    }
-
+    checkInpit('sname', enter.sname < 1)
+    checkInpit('email', !enter.email.match(/[^\s@]+@[^\s@]+\.[^\s@]+/))
+    checkInpit('phone', !enter.phone.match(/^\+?\d{8,15}$/))
+    checkInpit('address', !enter.address.match(/^[a-zA-Z0-9\s\-\,\.\']+$/))
+    checkInpit('zip', !/^\d+$/.test(enter.zip))
+    checkInpit('city', !/^\w+$/.test(enter.city))
+    checkInpit('country', !/^\w+$/.test(enter.country))
+    checkInpit('pin', !/^\d{4}$/.test(enter.pin))
+    checkInpit('money', !/^\d{10,}$/.test(enter.money))
 
     if (proceed) {
-
       setThank(true)
     }
   }
@@ -218,7 +107,7 @@ function Checkout() {
   return (
     <>
       <div className='checkoutWrapper'>
-        {thank&&<Thank></Thank>}
+        {thank && <Thank></Thank>}
         <main className='checkoutMain'>
           <button onClick={() => navigate(-1)} className='goBack'>
             go back
@@ -232,10 +121,14 @@ function Checkout() {
               <h2>checkout</h2>
               <div className='billing'>
                 <p>billing details</p>
-                <div className={messeage.sname ? 'form-row formDanger' : 'form-row'}>
-                  {messeage.sname && <span className="SpanMessage">
-                    please enter a number
-                  </span>}
+                <div
+                  className={
+                    messeage.sname ? 'form-row formDanger' : 'form-row'
+                  }
+                >
+                  {messeage.sname && (
+                    <span className='SpanMessage'>please enter a number</span>
+                  )}
 
                   <label htmlFor='name'>name</label>
                   <input
@@ -243,7 +136,6 @@ function Checkout() {
                     type='text'
                     id='name'
                     name='name'
-
                     onChange={(e) => {
                       setEnter((old) => {
                         return { ...old, sname: e.target.value }
@@ -252,14 +144,20 @@ function Checkout() {
                     value={enter.sname}
                   />
                 </div>
-                <div className={messeage.email ? 'form-row formDanger' : 'form-row'}>
-                  {messeage.email && <span className="SpanMessage">
-                    please enter a valid email!
-                  </span>}
+                <div
+                  className={
+                    messeage.email ? 'form-row formDanger' : 'form-row'
+                  }
+                >
+                  {messeage.email && (
+                    <span className='SpanMessage'>
+                      please enter a valid email!
+                    </span>
+                  )}
                   <label htmlFor='email'>Email Address</label>
                   <input
                     placeholder='prettyName@hotmail.com'
-                    type='email'
+                    type='text'
                     id='email'
                     name='email'
                     onChange={(e) => {
@@ -270,10 +168,16 @@ function Checkout() {
                     value={enter.email}
                   />
                 </div>
-                <div className={messeage.phone ? 'form-row formDanger' : 'form-row'}>
-                  {messeage.phone && <span className="SpanMessage">
-                    please enter a valid mobile number
-                  </span>}
+                <div
+                  className={
+                    messeage.phone ? 'form-row formDanger' : 'form-row'
+                  }
+                >
+                  {messeage.phone && (
+                    <span className='SpanMessage'>
+                      please enter a valid mobile number
+                    </span>
+                  )}
                   <label htmlFor='Phone'>Phone Number</label>
                   <input
                     placeholder='+201234567891'
@@ -291,10 +195,16 @@ function Checkout() {
               </div>
               <div className='shipping'>
                 <p>Shipping info</p>
-                <div className={messeage.address ? 'form-row formDanger' : 'form-row'}>
-                  {messeage.address && <span className="SpanMessage">
-                    please enter a valid <address></address>
-                  </span>}
+                <div
+                  className={
+                    messeage.address ? 'form-row formDanger' : 'form-row'
+                  }
+                >
+                  {messeage.address && (
+                    <span className='SpanMessage'>
+                      please enter a valid <address></address>
+                    </span>
+                  )}
                   <label htmlFor='Address'>Address</label>
                   <input
                     placeholder='11 ANYWHERE'
@@ -309,10 +219,14 @@ function Checkout() {
                     value={enter.address}
                   />
                 </div>
-                <div className={messeage.zip ? 'form-row formDanger' : 'form-row'}>
-                  {messeage.zip && <span className="SpanMessage">
-                    it must be a valid number! <address></address>
-                  </span>}
+                <div
+                  className={messeage.zip ? 'form-row formDanger' : 'form-row'}
+                >
+                  {messeage.zip && (
+                    <span className='SpanMessage'>
+                      it must be a valid number! <address></address>
+                    </span>
+                  )}
                   <label htmlFor='Zip'>Zip Code</label>
                   <input
                     placeholder='11324'
@@ -327,10 +241,14 @@ function Checkout() {
                     name='Zip'
                   />
                 </div>
-                <div className={messeage.city ? 'form-row formDanger' : 'form-row'}>
-                  {messeage.city && <span className="SpanMessage">
-                    provide city <address></address>
-                  </span>}
+                <div
+                  className={messeage.city ? 'form-row formDanger' : 'form-row'}
+                >
+                  {messeage.city && (
+                    <span className='SpanMessage'>
+                      provide city <address></address>
+                    </span>
+                  )}
                   <label htmlFor='City'>City</label>
                   <input
                     placeholder='Gotham'
@@ -345,10 +263,16 @@ function Checkout() {
                     value={enter.city}
                   />
                 </div>
-                <div className={messeage.country ? 'form-row formDanger' : 'form-row'}>
-                  {messeage.country && <span className="SpanMessage">
-                    provide country <address></address>
-                  </span>}
+                <div
+                  className={
+                    messeage.country ? 'form-row formDanger' : 'form-row'
+                  }
+                >
+                  {messeage.country && (
+                    <span className='SpanMessage'>
+                      provide country <address></address>
+                    </span>
+                  )}
                   <label htmlFor='Country'>Country</label>
                   <input
                     placeholder='Egypt'
@@ -403,10 +327,16 @@ function Checkout() {
 
                 {first ? (
                   <>
-                    <div className={messeage.money ? 'form-row formDanger' : 'form-row'}>
-                      {messeage.money && <span className="SpanMessage">
-                        must be a number <address></address>
-                      </span>}
+                    <div
+                      className={
+                        messeage.money ? 'form-row formDanger' : 'form-row'
+                      }
+                    >
+                      {messeage.money && (
+                        <span className='SpanMessage'>
+                          must be a number <address></address>
+                        </span>
+                      )}
                       <label htmlFor='Country'>e-Money Number </label>
                       <input
                         placeholder='123123123'
@@ -421,10 +351,16 @@ function Checkout() {
                         value={enter.money}
                       />
                     </div>
-                    <div className={messeage.pin ? 'form-row formDanger' : 'form-row'}>
-                      {messeage.pin && <span className="SpanMessage">
-                        must be a number <address></address>
-                      </span>}
+                    <div
+                      className={
+                        messeage.pin ? 'form-row formDanger' : 'form-row'
+                      }
+                    >
+                      {messeage.pin && (
+                        <span className='SpanMessage'>
+                          must be a number <address></address>
+                        </span>
+                      )}
                       <label htmlFor='Pin'>e-Money Pin</label>
                       <input
                         placeholder='4684'
