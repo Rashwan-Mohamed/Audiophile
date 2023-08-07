@@ -1280,8 +1280,35 @@ div.select:nth-child(4) {
   }
 
   .disPro > li > span {
-     font-size: 14px;
+    font-size: 14px;
     font-weight: 600;
     justify-self: center;
+  }
+  .disPro > li {
+    gap: 5px 5px;
+  }
+  .reviseDetails > h5 {
+    font-size: 14px;
+  }
+  .reviseDetails > span {
+    font-size: 14px !important;
+  }
+
+  .fillForm form > div {
+    gap: 15px 10px;
+  }
+  .fillForm input,
+  .select {
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .fillForm form > h2 {
+    font-size: 25px;
+  }
+  .fillForm form {
+    gap: 30px 0;
+  }
+  .cats {
+    gap: 30px;
   }
 }
