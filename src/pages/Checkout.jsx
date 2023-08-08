@@ -31,7 +31,6 @@ function Checkout() {
     }
     return newl
   })
-
   const getTotal = () => {
     let total = 0
 
@@ -107,7 +106,7 @@ function Checkout() {
   return (
     <>
       <div className='checkoutWrapper'>
-        {thank && <Thank></Thank>}
+        {thank && <Thank grand={Math.ceil(1.2 * getTotal() + 50)} cartProducts={cartProducts} ></Thank>}
         <main className='checkoutMain'>
           <button onClick={() => navigate(-1)} className='goBack'>
             go back
@@ -435,7 +434,6 @@ function Checkout() {
               form='mainForm'
               onClick={() => {
                 if (cartProducts.length >= 1) {
-                  // formRef.current.submit()
                 } else {
                   navigate('/')
                 }
