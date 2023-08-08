@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 function Category() {
   return (
     <section className='mightKnow'>
-      <Link>
+      <Link to={'/headphones'} >
         <picture>
           <img
             src='/src/assets/shared/desktop/image-headphones.png'
@@ -21,7 +21,7 @@ function Category() {
           </span>
         </div>
       </Link>
-      <Link>
+      <Link to={'/speakers'} >
         <picture>
           <img
             src='/src/assets/shared/desktop/image-speakers.png'
@@ -39,7 +39,7 @@ function Category() {
           </span>
         </div>
       </Link>{' '}
-      <Link>
+      <Link to={'/earphones'} >
         <picture>
           <img
             src='/src/assets/shared/desktop/image-earphones.png'

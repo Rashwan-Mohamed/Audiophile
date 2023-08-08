@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Category from '../components/Category'
 import SeeProduct from '../components/SeeProduct'
 import Bringing from '../components/Bringing'
 import Footer from '../components/Footer'
 
 function Home() {
+  const naviage = useNavigate()
   return (
     <>
       <header className='homeHeader'>
@@ -17,7 +18,7 @@ function Home() {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <button className='seePro'>SEE PRODUCT</button>
+            <button onClick={() => naviage('/product_detail/xx99-mark-ii')} className='seePro'>SEE PRODUCT</button>
           </article>
         </div>
       </header>
@@ -39,12 +40,12 @@ function Home() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <SeeProduct></SeeProduct>
+            <SeeProduct where={'/product_detail/zx9'} ></SeeProduct>
           </article>
         </section>
         <section className='z7x'>
           <h2>ZX7 SPEAKER</h2>
-          <SeeProduct></SeeProduct>
+          <SeeProduct where={'/product_detail/z7x'} ></SeeProduct>
           {/* <picture>
             <source
               srcSet='src/assets/home/desktop/image-speaker-zx7.jpg'
@@ -85,7 +86,7 @@ function Home() {
           </picture>
           <section className='z7x'>
             <h2>YX1 EARPHONES</h2>
-            <SeeProduct></SeeProduct>
+            <SeeProduct where={'/product_detail/yx1'} ></SeeProduct>
             {/* <picture>
             <source
               srcSet='src/assets/home/desktop/image-speaker-zx7.jpg'
