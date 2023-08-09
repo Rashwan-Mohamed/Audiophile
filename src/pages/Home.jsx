@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Category from '../components/Category'
 import SeeProduct from '../components/SeeProduct'
 import Bringing from '../components/Bringing'
 import Footer from '../components/Footer'
-import { useWidth } from '../useWidt'
 function Home() {
-  const width = useWidth()
-  console.log(width)
+
   const naviage = useNavigate()
   return (
     <>
       <header className='homeHeader'>
         <div className='wrapper'>
+  
           <article className='heleft'>
             <p className='newProduct'>NEW PRODUCT</p>
             <h1>XX99 MARK II HEADPHONES</h1>

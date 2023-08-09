@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useGlobalContext } from '../context'
 import Cart from './Cart'
+import { useWidth } from '../useWidt'
+
 function Navbar() {
   const { cart } = useGlobalContext()
   const [isHome, setIsHome] = useState(useLocation())
@@ -11,10 +13,11 @@ function Navbar() {
   const navigate = useNavigate()
   const location = useLocation()
   const bad = useRef(0)
+  const width = useWidth()
+  const [open, setOpen] = useState(false)
   useEffect(() => {
     setIsHome(() => location.pathname)
   }, [location])
-
 
   useEffect(() => {
     if (cartShow === true) {
@@ -41,6 +44,16 @@ function Navbar() {
       }}
     >
       <div className={scrolled ? 'navWrapper navScrolled' : 'navWrapper'}>
+        {width < 768 && (
+          <>
+            <div
+              onClick={() => setOpen(!open)}
+              className={open ? 'menu-button buttonOpen' : 'menu-button'}
+            >
+              <div className='menu-button__burger'></div>
+            </div>
+          </>
+        )}
         <picture onClick={() => navigate('/')}>
           <source
             srcSet='\src\assets\shared\desktop\logo.svg '
