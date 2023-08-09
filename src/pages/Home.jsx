@@ -4,8 +4,10 @@ import Category from '../components/Category'
 import SeeProduct from '../components/SeeProduct'
 import Bringing from '../components/Bringing'
 import Footer from '../components/Footer'
-
+import { useWidth } from '../useWidt'
 function Home() {
+  const width = useWidth()
+  console.log(width)
   const naviage = useNavigate()
   return (
     <>
@@ -18,7 +20,12 @@ function Home() {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <button onClick={() => naviage('/product_detail/xx99-mark-ii')} className='seePro'>SEE PRODUCT</button>
+            <button
+              onClick={() => naviage('/product_detail/xx99-mark-ii')}
+              className='seePro'
+            >
+              SEE PRODUCT
+            </button>
           </article>
         </div>
       </header>
@@ -40,30 +47,12 @@ function Home() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <SeeProduct where={'/product_detail/zx9'} ></SeeProduct>
+            <SeeProduct where={'/product_detail/zx9'}></SeeProduct>
           </article>
         </section>
         <section className='z7x'>
           <h2>ZX7 SPEAKER</h2>
-          <SeeProduct where={'/product_detail/z7x'} ></SeeProduct>
-          {/* <picture>
-            <source
-              srcSet='src/assets/home/desktop/image-speaker-zx7.jpg'
-              media='(min-width:1024px)'
-            />
-            <source
-              srcSet='src/assets/home/tablet/image-speaker-zx7.jpg'
-              media='(min-width:481px)'
-            />
-            <source
-              srcSet='src/assets/home/mobile/image-speaker-zx7.jpg'
-              media='(max-width:480px)'
-            />
-            <img
-              src='src/assets/home/desktop/image-speaker-zx7.jpg'
-              alt='speaker-zx7'
-            />
-          </picture> */}
+          <SeeProduct where={'/product_detail/z7x'}></SeeProduct>
         </section>
         <section className='yx1'>
           <picture>
@@ -86,25 +75,7 @@ function Home() {
           </picture>
           <section className='z7x'>
             <h2>YX1 EARPHONES</h2>
-            <SeeProduct where={'/product_detail/yx1'} ></SeeProduct>
-            {/* <picture>
-            <source
-              srcSet='src/assets/home/desktop/image-speaker-zx7.jpg'
-              media='(min-width:1024px)'
-            />
-            <source
-              srcSet='src/assets/home/tablet/image-speaker-zx7.jpg'
-              media='(min-width:481px)'
-            />
-            <source
-              srcSet='src/assets/home/mobile/image-speaker-zx7.jpg'
-              media='(max-width:480px)'
-            />
-            <img
-              src='src/assets/home/desktop/image-speaker-zx7.jpg'
-              alt='speaker-zx7'
-            />
-          </picture> */}
+            <SeeProduct where={'/product_detail/yx1'}></SeeProduct>
           </section>
         </section>
         <Bringing></Bringing>
