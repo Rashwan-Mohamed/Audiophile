@@ -32,18 +32,18 @@ function Home() {
           <picture>
             <source
               media='(min-width:1024px)'
-              srcSet='/src/assets/home/desktop/image-speaker-zx9.png'
+              srcSet='/assets/home/desktop/image-speaker-zx9.png'
             />
             <source
               media='(min-width:521px)'
-              srcSet='/src/assets/home/tablet/image-speaker-zx9.png'
+              srcSet='/assets/home/tablet/image-speaker-zx9.png'
             />
             <source
               media='(max-width:520px)'
-              srcSet='/src/assets/home/mobile/image-speaker-zx9.png'
+              srcSet='/assets/home/mobile/image-speaker-zx9.png'
             />
             <img
-              src='/src/assets/home/desktop/image-speaker-zx9.png'
+              src='/assets/home/desktop/image-speaker-zx9.png'
               alt='zx9-speaker'
             />
           </picture>
@@ -63,19 +63,19 @@ function Home() {
         <section className='yx1'>
           <picture>
             <source
-              srcSet='src/assets/home/desktop/image-earphones-yx1.jpg'
+              srcSet='/assets/home/desktop/image-earphones-yx1.jpg'
               media='(min-width:1024px)'
             />
             <source
-              srcSet='src/assets/home/tablet/image-earphones-yx1.jpg'
+              srcSet='/assets/home/tablet/image-earphones-yx1.jpg'
               media='(min-width:521px)'
             />
             <source
-              srcSet='src/assets/home/mobile/image-earphones-yx1.jpg'
+              srcSet='/assets/home/mobile/image-earphones-yx1.jpg'
               media='(max-width:520px)'
             />
             <img
-              src='src/assets/home/desktop/image-earphones-yx1.jpg'
+              src='/assets/home/desktop/image-earphones-yx1.jpg'
               alt='speaker-zx7'
             />
           </picture>
