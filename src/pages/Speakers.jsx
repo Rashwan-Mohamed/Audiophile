@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SPEAKERS } from '../data/CategoryData'
 import ProductCat from '../components/ProductCat'
 import Category from '../components/Category'
 import Bringing from '../components/Bringing'
 import Footer from '../components/Footer'
 function Speakers() {
+  useEffect(() => {
+    scrollTo(0, 0)
+  }, [])
   return (
     <>
       <header className='headHeader'>
