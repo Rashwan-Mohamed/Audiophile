@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useGlobalContext } from '../context'
 import Cart from './Cart'
 import { useWidth } from '../useWidt'
-
+import Category from './Category'
 function Navbar() {
   const { cart } = useGlobalContext()
   const [isHome, setIsHome] = useState(useLocation())
@@ -20,12 +20,12 @@ function Navbar() {
   }, [location])
 
   useEffect(() => {
-    if (cartShow === true) {
+    if (cartShow || open) {
       document.body.style.overflowY = 'hidden'
     } else {
       document.body.style.overflowY = 'scroll'
     }
-  }, [cartShow])
+  }, [cartShow, open])
   useEffect(() => {
     function handleScroll() {
       if (window.scrollY > 200) {
@@ -37,12 +37,20 @@ function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
   return (
     <nav
       style={{
         backgroundColor: isHome === '/' ? 'rgb(25, 25, 25)' : 'rgb(0, 0, 0)',
       }}
     >
+      {open && (
+        <>
+          <div className='phonoProno'>
+            <Category setOpen={setOpen}></Category>
+          </div>
+        </>
+      )}
       <div className={scrolled ? 'navWrapper navScrolled' : 'navWrapper'}>
         {width < 768 && (
           <>

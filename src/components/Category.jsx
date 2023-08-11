@@ -1,9 +1,16 @@
 // import React from 'react'
 import { Link } from 'react-router-dom'
-function Category() {
+function Category({ setOpen }) {
   return (
     <section className='mightKnow'>
-      <Link to={'/headphones'} >
+      <Link
+        onClick={() => {
+          if (setOpen) {
+            setOpen(false)
+          }
+        }}
+        to={'/headphones'}
+      >
         <picture>
           <img
             src='/src/assets/shared/desktop/image-headphones.png'
@@ -21,7 +28,14 @@ function Category() {
           </span>
         </div>
       </Link>
-      <Link to={'/speakers'} >
+      <Link
+        onClick={() => {
+          if (setOpen) {
+            setOpen(false)
+          }
+        }}
+        to={'/speakers'}
+      >
         <picture>
           <img
             src='/src/assets/shared/desktop/image-speakers.png'
@@ -39,7 +53,14 @@ function Category() {
           </span>
         </div>
       </Link>{' '}
-      <Link to={'/earphones'} >
+      <Link
+        onClick={() => {
+          if (setOpen) {
+            setOpen(false)
+          }
+        }}
+        to={'/earphones'}
+      >
         <picture>
           <img
             src='/src/assets/shared/desktop/image-earphones.png'
