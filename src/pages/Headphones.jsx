@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { HEADPHONES } from '../data/CategoryData'
 import ProductCat from '../components/ProductCat'
 import Category from '../components/Category'
 import Bringing from '../components/Bringing'
 import Footer from '../components/Footer'
 function Headphones() {
+  useEffect(() => {
+    scrollTo(0, 0)
+  }, [])
   return (
     <>
       <header className='headHeader'>
@@ -32,7 +35,7 @@ function Headphones() {
         <Category></Category>
         <Bringing></Bringing>
       </main>
-        <Footer></Footer>
+      <Footer></Footer>
     </>
   )
 }
