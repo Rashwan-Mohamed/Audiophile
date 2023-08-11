@@ -15,13 +15,12 @@ function ProductCat({
 }) {
   let seso = place.split('/')
   const width = useWidth()
-
   return (
     <section className='ProductCat'>
-      {(turn || width < 540) && (
+      {(turn || width < 768) && (
         <picture>
           <source
-            media='(min-width:1024px)'
+            media='(min-width:768px)'
             srcSet={`src/assets/${seso[0]}/desktop/${seso[2]}`}
           />
           <source
@@ -43,10 +42,10 @@ function ProductCat({
         <SeeProduct where={link} sases={'seeProduct'}></SeeProduct>
       </article>
 
-      {!turn && width > 520 && (
+      {!turn && width > 768 && (
         <picture>
           <source
-            media='(min-width:1024px)'
+            media='(min-width:768px)'
             srcSet={`src/assets/${seso[0]}/desktop/${seso[2]}`}
           />
           <source

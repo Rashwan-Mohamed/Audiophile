@@ -95,18 +95,32 @@ function Checkout() {
     checkInpit('zip', !/^\d+$/.test(enter.zip))
     checkInpit('city', !/^\w+$/.test(enter.city))
     checkInpit('country', !/^\w+$/.test(enter.country))
-    checkInpit('pin', !/^\d{4}$/.test(enter.pin))
-    checkInpit('money', !/^\d{10,}$/.test(enter.money))
+    if (first) {
+      checkInpit('money', !/^\d{10,}$/.test(enter.money))
+      checkInpit('pin', !/^\d{4}$/.test(enter.pin))
+    }
 
     if (proceed) {
       setThank(true)
     }
   }
-
+  useEffect(() => {
+    if (thank) {
+      document.body.style.overflowY = 'hidden'
+    } else {
+      document.body.style.overflowY = 'scroll'
+    }
+  }, [thank])
   return (
     <>
       <div className='checkoutWrapper'>
-        {thank && <Thank grand={Math.ceil(1.2 * getTotal() + 50)} cartProducts={cartProducts} ></Thank>}
+        {thank && (
+          <Thank
+            grand={Math.ceil(1.2 * getTotal() + 50)}
+            cartProducts={cartProducts}
+            setThank={setThank}
+          ></Thank>
+        )}
         <main className='checkoutMain'>
           <button onClick={() => navigate(-1)} className='goBack'>
             go back
@@ -434,6 +448,7 @@ function Checkout() {
               form='mainForm'
               onClick={() => {
                 if (cartProducts.length >= 1) {
+                  return
                 } else {
                   navigate('/')
                 }

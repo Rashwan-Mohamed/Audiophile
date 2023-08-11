@@ -57,11 +57,11 @@ function ProductPage() {
               srcSet={`/src/assets/${seso[0]}/desktop/${seso[2]}`}
             />
             <source
-              media='(min-width:521px)'
+              media='(min-width:770px)'
               srcSet={`/src/assets/${seso[0]}/tablet/${seso[2]}`}
             />
             <source
-              media='(max-width:520px)'
+              media='(max-width:769px)'
               srcSet={`/src/assets/${seso[0]}/mobile/${seso[2]}`}
             />
             <img src={`src/assets/${seso[0]}/desktop/${seso[2]}`} alt={name} />
@@ -123,15 +123,15 @@ function ProductPage() {
               <picture key={arr[0]}>
                 <source
                   srcSet={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
-                  media='()'
+                  media='(min-width:1024px)'
                 />
                 <source
-                  srcSet={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
-                  media='()'
+                  srcSet={`/src/assets/${rero[0]}/tablet/${rero[2]}`}
+                  media='(min-width:521px)'
                 />
                 <source
-                  srcSet={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
-                  media='()'
+                  srcSet={`/src/assets/${rero[0]}/mobile/${rero[2]}`}
+                  media='(max-width:520px)'
                 />
                 <img
                   src={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
@@ -151,15 +151,15 @@ function ProductPage() {
                 <picture>
                   <source
                     srcSet={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
-                    media='()'
+                    media='(min-width:1024px)'
                   />
                   <source
-                    srcSet={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
-                    media='()'
+                    srcSet={`/src/assets/${rero[0]}/tablet/${rero[2]}`}
+                    media='(min-width:521px)'
                   />
                   <source
-                    srcSet={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
-                    media='()'
+                    srcSet={`/src/assets/${rero[0]}/mobile/${rero[2]}`}
+                    media='(max-width:520px)'
                   />
                   <img
                     src={`/src/assets/${rero[0]}/desktop/${rero[2]}`}

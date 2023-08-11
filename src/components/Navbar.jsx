@@ -44,12 +44,14 @@ function Navbar() {
 
   useEffect(() => {
     const handleClick = (e) => {
-      if (
-        !hap.current.contains(e.target) &&
-        !sad.current.contains(e.target) &&
-        !nab.current.contains(e.target)
-      )
-        setOpen(false)
+      if (open) {
+        if (
+          !hap.current.contains(e.target) &&
+          !sad.current.contains(e.target) &&
+          !nab.current.contains(e.target)
+        )
+          setOpen(false)
+      }
     }
     window.addEventListener('click', handleClick)
     return () => window.removeEventListener('click', handleClick)
