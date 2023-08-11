@@ -32,18 +32,18 @@ function Home() {
           <picture>
             <source
               media='(min-width:1024px)'
-              srcSet='src/assets/home/desktop/image-speaker-zx9.png'
+              srcSet='/src/assets/home/desktop/image-speaker-zx9.png'
             />
             <source
               media='(min-width:521px)'
-              srcSet='src/assets/home/tablet/image-speaker-zx9.png'
+              srcSet='/src/assets/home/tablet/image-speaker-zx9.png'
             />
             <source
               media='(max-width:520px)'
-              srcSet='src/assets/home/mobile/image-speaker-zx9.png'
+              srcSet='/src/assets/home/mobile/image-speaker-zx9.png'
             />
             <img
-              src='src/assets/home/desktop/image-speaker-zx9.png'
+              src='/src/assets/home/desktop/image-speaker-zx9.png'
               alt='zx9-speaker'
             />
           </picture>
