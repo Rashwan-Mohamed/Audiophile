@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Category from '../components/Category'
 import SeeProduct from '../components/SeeProduct'
 import Bringing from '../components/Bringing'
 import Footer from '../components/Footer'
 function Home() {
+    useEffect(() => {
+      scrollTo(0, 0)
+    }, [])
   const naviage = useNavigate()
   return (
     <>
