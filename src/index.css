@@ -2097,4 +2097,7 @@ div.select:nth-child(4) {
     display: flex;
     flex-direction: column;
   }
+  .carto {
+    width: fit-content;
+  }
 }
