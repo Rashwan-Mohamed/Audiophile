@@ -61,7 +61,7 @@ function Home() {
         </section>
         <section className='z7x'>
           <h2>ZX7 SPEAKER</h2>
-          <SeeProduct where={'/product_detail/z7x'}></SeeProduct>
+          <SeeProduct where={'/product_detail/zx9'}></SeeProduct>
         </section>
         <section className='yx1'>
           <picture>
