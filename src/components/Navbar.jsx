@@ -10,11 +10,15 @@ function Navbar() {
   const [isHome, setIsHome] = useState(useLocation())
   const [scrolled, setScrolled] = useState(false)
   const [cartShow, setCartShow] = useState(false)
+  const [open, setOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
   const bad = useRef(0)
+  const sad = useRef(0)
+  const hap = useRef(0)
+  const nab = useRef(0)
+
   const width = useWidth()
-  const [open, setOpen] = useState(false)
   useEffect(() => {
     setIsHome(() => location.pathname)
   }, [location])
@@ -38,15 +42,28 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (
+        !hap.current.contains(e.target) &&
+        !sad.current.contains(e.target) &&
+        !nab.current.contains(e.target)
+      )
+        setOpen(false)
+    }
+    window.addEventListener('click', handleClick)
+    return () => window.removeEventListener('click', handleClick)
+  }, [])
   return (
     <nav
+      ref={nab}
       style={{
         backgroundColor: isHome === '/' ? 'rgb(25, 25, 25)' : 'rgb(0, 0, 0)',
       }}
     >
       {open && (
         <>
-          <div className='phonoProno'>
+          <div ref={hap} className='phonoProno'>
             <Category setOpen={setOpen}></Category>
           </div>
         </>
@@ -55,6 +72,7 @@ function Navbar() {
         {width < 768 && (
           <>
             <div
+              ref={sad}
               onClick={() => setOpen(!open)}
               className={open ? 'menu-button buttonOpen' : 'menu-button'}
             >

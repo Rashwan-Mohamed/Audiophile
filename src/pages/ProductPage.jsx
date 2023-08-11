@@ -52,9 +52,18 @@ function ProductPage() {
 
         <section className='ProductCat'>
           <picture>
-            <source srcSet={`/src/assets/${seso[0]}/desktop/${seso[2]}`} />
-            <source srcSet={`/src/assets/${seso[0]}/tablet/${seso[2]}`} />
-            <source srcSet={`/src/assets/${seso[0]}/mobile/${seso[2]}`} />
+            <source
+              media='(min-width:1024px)'
+              srcSet={`/src/assets/${seso[0]}/desktop/${seso[2]}`}
+            />
+            <source
+              media='(min-width:521px)'
+              srcSet={`/src/assets/${seso[0]}/tablet/${seso[2]}`}
+            />
+            <source
+              media='(max-width:520px)'
+              srcSet={`/src/assets/${seso[0]}/mobile/${seso[2]}`}
+            />
             <img src={`src/assets/${seso[0]}/desktop/${seso[2]}`} alt={name} />
           </picture>
           <article className='details'>

@@ -1522,7 +1522,7 @@ div.select:nth-child(4) {
     padding: 1.5rem var(--paddingSide);
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 520px) {
   .menu-button {
     display: flex;
     justify-content: center;
@@ -1654,7 +1654,7 @@ div.select:nth-child(4) {
     align-items: center;
   }
   :root {
-    --paddingSide: 1rem;
+    --paddingSide: 2rem;
   }
   .stein > article:nth-child(2) > h1:nth-child(1) {
     font-size: 3.5rem;
@@ -1712,5 +1712,274 @@ div.select:nth-child(4) {
   }
   ul.cats:nth-child(5) {
     gap: 0 10px;
+  }
+  section.z7x:nth-child(3) {
+    background-image: url('/src/assets/home/tablet/image-speaker-zx7.jpg');
+  }
+
+  .ProductCat {
+    gap: 0 50px;
+  }
+
+  .mayAlos > h2:nth-child(1) {
+    grid-column: 1/4;
+    text-align: center;
+  }
+
+  .toCart {
+    padding: 0.5rem 1rem;
+    text-transform: capitalize;
+  }
+
+  .details > div:nth-child(5) {
+    /* gap: 0 20px; */
+    gap: 0 10px;
+  }
+
+  .addMore {
+    width: fit-content;
+    gap: 0 25px;
+  }
+
+  .addMore > button {
+    padding: 0.75rem;
+  }
+  .details > div:nth-child(5) {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .ProductCat {
+    gap: 0 10px;
+  }
+
+  section.ProductCat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px 0;
+  }
+
+  section.ProductCat > article {
+    align-items: center;
+    text-align: center;
+  }
+
+  section.ProductCat > article > h1:nth-child(2) {
+    font-size: 35px;
+  }
+
+  .productPage {
+    gap: 100px 0;
+  }
+
+  .moreInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 50px 0;
+  }
+
+  .gallary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+  }
+
+  .gallary > picture:nth-child(1) > img:nth-child(4) {
+    height: auto;
+  }
+
+  .mayAlos {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 40px 0;
+  }
+
+  .mayAlos > h2:nth-child(1) {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .homeHeader {
+    background-image: url('/src/assets/home/mobile/image-header.jpg');
+  }
+
+  .heleft > h1:nth-child(2) {
+    font-size: 2.5rem;
+  }
+
+  .mightKnow > a > picture:nth-child(1) {
+    width: 167px;
+    bottom: 36px;
+  }
+  .stein > picture:nth-child(1) {
+    width: 160px;
+  }
+  .stein {
+    padding: 5rem 4rem;
+  }
+  :root {
+    --paddingSide: 18px;
+  }
+
+  .mightKnow > a > h5:nth-child(2) {
+    font-size: 17px;
+  }
+
+  .sawPro {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .footerHero {
+    grid-column: 1/-1;
+  }
+
+  .Lino {
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
+
+  .heleft > p:nth-child(3) {
+    max-width: 80%;
+    line-height: 1.75;
+  }
+
+  .mightKnow {
+    flex-direction: column;
+    gap: 60px 0;
+  }
+
+  .stein {
+    background-image: url('/src/assets/home/mobile/pattern-circles.svg');
+  }
+
+  .stein > article:nth-child(2) > h1:nth-child(1) {
+    font-size: 2.2rem;
+  }
+
+  section.z7x:nth-child(3) {
+    background-image: url('/src/assets/home/mobile/image-speaker-zx7.jpg');
+    padding: 2rem;
+  }
+
+  .yx1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: auto;
+    gap: 30px 0;
+  }
+
+  .bringing > article:nth-child(1) > h1:nth-child(1) {
+    font-size: 35px;
+  }
+
+  .bringing > article:nth-child(1) > p:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .footerWrapper {
+    grid-template-columns: 1fr;
+    gap: 50px 0;
+  }
+
+  ul.cats:nth-child(5) {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px 0;
+    place-self: center;
+  }
+
+  .links {
+    grid-row: -1;
+    grid-column: 1/-1;
+    margin: auto;
+  }
+
+  .audioSpecialist {
+    text-align: center;
+  }
+
+  .footerHero {
+    margin: auto;
+  }
+
+  .copyRight {
+    text-align: center;
+  }
+  .phonoProno {
+    bottom: -756px;
+    padding: 6.2rem 2rem;
+  }
+
+  .headHeader {
+    height: 200px;
+    padding: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .headHeader h1 {
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+
+  section.ProductCat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px 0;
+  }
+
+  section.ProductCat > article {
+    align-items: center;
+    text-align: center;
+  }
+
+  section.ProductCat > article > h1:nth-child(2) {
+    font-size: 35px;
+  }
+
+  .productPage {
+    gap: 100px 0;
+  }
+
+  .moreInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 50px 0;
+  }
+
+  .gallary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+  }
+
+  .gallary > picture:nth-child(1) > img:nth-child(4) {
+    height: auto;
+  }
+
+  .mayAlos {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 40px 0;
+  }
+
+  .mayAlos > h2:nth-child(1) {
+    font-size: 32px;
+  }
+  .carto {
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }

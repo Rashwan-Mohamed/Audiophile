@@ -24,11 +24,11 @@ function Bringing() {
         />
         <source
           srcSet='/src/assets/shared/tablet/image-best-gear.jpg'
-          media='(min-width:481px)'
+          media='(min-width:521px)'
         />
         <source
           srcSet='/src/assets/shared/mobile/image-best-gear.jpg'
-          media='(max-width:480px)'
+          media='(max-width:520px)'
         />
         <img
           src='/src/assets/shared/desktop/image-best-gear.jpg'

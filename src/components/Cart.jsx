@@ -31,7 +31,6 @@ function Cart({ setCartShow, bad }) {
 
   useEffect(() => {
     const handleClick = (e) => {
-      console.log(detectClose.current.contains(e.target))
       if (
         !detectClose.current.contains(e.target) &&
         !bad.current.contains(e.target)
