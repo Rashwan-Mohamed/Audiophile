@@ -10,19 +10,19 @@ function Footer({ className }) {
 
         <picture className='footerHero'>
           <source
-            srcSet='\src\assets\shared\desktop\logo.svg '
+            srcSet='\assets\shared\desktop\logo.svg '
             sizes='(min-width:1024px)'
           />
           <source
-            srcSet='\src\assets\shared\tablet\logo.svg '
+            srcSet='\assets\shared\tablet\logo.svg '
             sizes='(min-width:481px)'
           />
           <source
-            srcSet='\src\assets\shared\mobile\logo.svg'
+            srcSet='\assets\shared\mobile\logo.svg'
             media='(max-width:480px)'
           />
           <img
-            srcSet='\src\assets\shared\desktop\logo.svg'
+            srcSet='\assets\shared\desktop\logo.svg'
             alt='audiophile logo'
           />
         </picture>

@@ -22,7 +22,7 @@ function Thank({ cartProducts, grand, setThank }) {
                 const { product, price, cartImg, num, id } = item
                 return (
                   <li key={id}>
-                    <img src={`/src/assets/${cartImg}`} alt={product} />
+                    <img src={`/assets/${cartImg}`} alt={product} />
                     <span> {product}</span>
                     <span> $ {price}</span>
                     <span>x{num}</span>

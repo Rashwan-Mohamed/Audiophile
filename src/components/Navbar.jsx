@@ -84,19 +84,19 @@ function Navbar() {
         )}
         <picture onClick={() => navigate('/')}>
           <source
-            srcSet='\src\assets\shared\desktop\logo.svg '
+            srcSet='\assets\shared\desktop\logo.svg '
             sizes='(min-width:1024px)'
           />
           <source
-            srcSet='\src\assets\shared\tablet\logo.svg '
+            srcSet='\assets\shared\tablet\logo.svg '
             sizes='(min-width:481px)'
           />
           <source
-            srcSet='\src\assets\shared\mobile\logo.svg'
+            srcSet='\assets\shared\mobile\logo.svg'
             media='(max-width:480px)'
           />
           <img
-            srcSet='\src\assets\shared\desktop\logo.svg'
+            srcSet='\assets\shared\desktop\logo.svg'
             alt='audiophile logo'
           />
         </picture>
@@ -117,7 +117,7 @@ function Navbar() {
         </ul>
         <div ref={bad} onClick={() => setCartShow(!cartShow)} className='press'>
           {cart.length > 0 && <span>{cart.length}</span>}
-          <img src='\src\assets\shared\desktop\icon-cart.svg' alt='icon-cart' />
+          <img src='\assets\shared\desktop\icon-cart.svg' alt='icon-cart' />
         </div>
       </div>
       {cartShow && <Cart bad={bad} setCartShow={setCartShow}></Cart>}

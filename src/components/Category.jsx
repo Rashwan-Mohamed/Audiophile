@@ -13,7 +13,7 @@ function Category({ setOpen }) {
       >
         <picture>
           <img
-            src='/src/assets/shared/desktop/image-headphones.png'
+            src='/assets/shared/desktop/image-headphones.png'
             alt='mark-one-headphones'
           />
         </picture>{' '}
@@ -22,7 +22,7 @@ function Category({ setOpen }) {
           shop{' '}
           <span>
             <img
-              src='/src/assets/shared/desktop/icon-arrow-right.svg'
+              src='/assets/shared/desktop/icon-arrow-right.svg'
               alt='shop'
             />
           </span>
@@ -38,7 +38,7 @@ function Category({ setOpen }) {
       >
         <picture>
           <img
-            src='/src/assets/shared/desktop/image-speakers.png'
+            src='/assets/shared/desktop/image-speakers.png'
             alt='mark-one-headphones'
           />
         </picture>{' '}
@@ -47,7 +47,7 @@ function Category({ setOpen }) {
           shop{' '}
           <span>
             <img
-              src='/src/assets/shared/desktop/icon-arrow-right.svg'
+              src='/assets/shared/desktop/icon-arrow-right.svg'
               alt='shop'
             />
           </span>
@@ -63,7 +63,7 @@ function Category({ setOpen }) {
       >
         <picture>
           <img
-            src='/src/assets/shared/desktop/image-earphones.png'
+            src='/assets/shared/desktop/image-earphones.png'
             alt='mark-one-headphones'
           />
         </picture>{' '}
@@ -72,7 +72,7 @@ function Category({ setOpen }) {
           shop{' '}
           <span>
             <img
-              src='/src/assets/shared/desktop/icon-arrow-right.svg'
+              src='/assets/shared/desktop/icon-arrow-right.svg'
               alt='shop'
             />
           </span>

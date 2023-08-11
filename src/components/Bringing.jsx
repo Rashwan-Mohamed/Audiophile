@@ -19,19 +19,19 @@ function Bringing() {
       <picture>
         {' '}
         <source
-          srcSet='/src/assets/shared/desktop/image-best-gear.jpg'
+          srcSet='/assets/shared/desktop/image-best-gear.jpg'
           media='(min-width:1024px)'
         />
         <source
-          srcSet='/src/assets/shared/tablet/image-best-gear.jpg'
+          srcSet='/assets/shared/tablet/image-best-gear.jpg'
           media='(min-width:521px)'
         />
         <source
-          srcSet='/src/assets/shared/mobile/image-best-gear.jpg'
+          srcSet='/assets/shared/mobile/image-best-gear.jpg'
           media='(max-width:520px)'
         />
         <img
-          src='/src/assets/shared/desktop/image-best-gear.jpg'
+          src='/assets/shared/desktop/image-best-gear.jpg'
           alt='image-best-gear'
         />
       </picture>

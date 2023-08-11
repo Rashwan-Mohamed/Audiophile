@@ -54,17 +54,17 @@ function ProductPage() {
           <picture>
             <source
               media='(min-width:1024px)'
-              srcSet={`/src/assets/${seso[0]}/desktop/${seso[2]}`}
+              srcSet={`/assets/${seso[0]}/desktop/${seso[2]}`}
             />
             <source
               media='(min-width:770px)'
-              srcSet={`/src/assets/${seso[0]}/tablet/${seso[2]}`}
+              srcSet={`/assets/${seso[0]}/tablet/${seso[2]}`}
             />
             <source
               media='(max-width:769px)'
-              srcSet={`/src/assets/${seso[0]}/mobile/${seso[2]}`}
+              srcSet={`/assets/${seso[0]}/mobile/${seso[2]}`}
             />
-            <img src={`src/assets/${seso[0]}/desktop/${seso[2]}`} alt={name} />
+            <img src={`assets/${seso[0]}/desktop/${seso[2]}`} alt={name} />
           </picture>
           <article className='details'>
             <p className='desc'>{feature}</p>
@@ -122,19 +122,19 @@ function ProductPage() {
             return (
               <picture key={arr[0]}>
                 <source
-                  srcSet={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
+                  srcSet={`/assets/${rero[0]}/desktop/${rero[2]}`}
                   media='(min-width:1024px)'
                 />
                 <source
-                  srcSet={`/src/assets/${rero[0]}/tablet/${rero[2]}`}
+                  srcSet={`/assets/${rero[0]}/tablet/${rero[2]}`}
                   media='(min-width:521px)'
                 />
                 <source
-                  srcSet={`/src/assets/${rero[0]}/mobile/${rero[2]}`}
+                  srcSet={`/assets/${rero[0]}/mobile/${rero[2]}`}
                   media='(max-width:520px)'
                 />
                 <img
-                  src={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
+                  src={`/assets/${rero[0]}/desktop/${rero[2]}`}
                   alt={name}
                 />
               </picture>
@@ -150,19 +150,19 @@ function ProductPage() {
               <article key={url}>
                 <picture>
                   <source
-                    srcSet={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
+                    srcSet={`/assets/${rero[0]}/desktop/${rero[2]}`}
                     media='(min-width:1024px)'
                   />
                   <source
-                    srcSet={`/src/assets/${rero[0]}/tablet/${rero[2]}`}
+                    srcSet={`/assets/${rero[0]}/tablet/${rero[2]}`}
                     media='(min-width:521px)'
                   />
                   <source
-                    srcSet={`/src/assets/${rero[0]}/mobile/${rero[2]}`}
+                    srcSet={`/assets/${rero[0]}/mobile/${rero[2]}`}
                     media='(max-width:520px)'
                   />
                   <img
-                    src={`/src/assets/${rero[0]}/desktop/${rero[2]}`}
+                    src={`/assets/${rero[0]}/desktop/${rero[2]}`}
                     alt={alt}
                   />
                 </picture>
